@@ -1,0 +1,501 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>College Website</title>
+    <style>
+        *{
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f8b6c8;
+            margin: 0;
+        }
+
+        .form-container{
+            max-width: 770px;
+            margin: auto;
+            background: rgb(218, 112, 145);
+            padding: 50px;
+            border-radius: 30px;
+            box-shadow: 0 0 10px;
+            color: #fff;
+        }
+
+        h2{
+            text-align: center;
+            margin-bottom: 25px;
+        }
+
+        .form-group{
+            margin-bottom: 20px;
+        }
+
+        label{
+            display: block;
+            margin-bottom: 12px;
+        }
+
+        input,select{
+            width: 100%;
+            padding: 10px;
+            border-radius: 20px;
+        }
+
+        input[type="radio"],
+        input[type="checkbox"]{
+            width: auto;
+            margin-right: 10px;
+        }
+
+        input[type="submit"],
+        input[type="reset"]{
+            width: auto;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-right: 10px;
+        }
+
+        input[type="submit"]{
+            background: #f48fb1;
+            color: #4a1025;
+        }
+
+        input[type="reset"]{
+            background: transparent;
+            color: #4a1025;
+        }
+
+        input[type="Search"],
+        input[type="Date"],
+        input[type="Time"],
+        input[type="Date Time Local"],
+        input[type="Month"],
+        input[type="Week"]{
+            width:100;
+            padding:10px;
+            border:2px solid #fce4ec;
+            border-radius: 20px;
+        }
+
+        input[type="Range"]{
+            width:100%;
+        }
+
+        input[type="Color"]{
+            width:100%;
+            height: 45px;
+            cursor:pointer;
+            border-radius: 20px;
+        }
+
+        input[type="Image"]{
+            width: 300px;
+            height:300px;
+            cursor:pointer;
+        }
+
+        .navbar{
+            padding-top: 0;
+            background-color: rgb(218, 112, 145);
+            padding: 15px 50px;
+            display:flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 100px;
+        }
+
+        .navbar-brand{
+            color: #4a1025;
+            text-decoration: none;
+            font-size: 25px;
+            font-weight: bold;
+        }
+
+        .nav-links{
+            display:flex;
+            gap:30px;
+            list-style: none;
+        }
+
+        .nav-links a{
+            color: rgb(74, 16, 37);
+            text-decoration: none;
+            font-size: 17px;
+        }
+
+        .nav-links a:hover{
+            color: rgb(255, 255, 255);
+            background-color: #c2185b;
+            padding:7px 7px;
+            border-radius: 5px;
+        }
+
+        h1{
+            text-align: center;
+            color: #8e244d;
+            margin-bottom: 10px;
+            margin-left: 40px; 
+            padding-top: 50px;
+            padding-bottom: 20px;
+        }
+
+        table {
+            width: 80%;
+            max-width: 800px;
+            border-collapse: collapse;
+            margin: 0 auto 100px;
+            text-align: center;
+        
+        }
+
+        th,td{
+            border:3px solid #0e0d0d;
+            padding: 20px;
+            text-align: center;
+        }
+
+        th{
+            background-color: rgb(218, 112, 145);
+            color: rgb(255, 240, 245);
+        }
+
+        tr:nth-child(even)
+        {
+            background-color: rgb(244, 182, 201);
+        }
+
+        tr:hover{
+            background-color: hsl(340, 80%, 75%);
+        }
+
+        tr td:last-child::before{
+            content:"₹"
+        }
+        .img-container{
+            display: flex;
+            padding: 20px;
+            align-items: center;
+        }
+        .img-container img{
+            padding: 20px;
+            height: 200px;
+        }
+
+        footer{
+            background-color: rgb(74, 16, 37);
+            color: rgb(248, 182, 200);
+            padding: 50px 70px 20px;
+        }
+
+        .footer-container{
+            display: flex;
+            justify-content: space-between;
+            gap: 50px;
+        }
+
+        .footer-column{
+            width: 25%;
+        }
+
+        .footer-column h3{
+            font-size: 22px;
+            margin-bottom: 20px;
+            color: rgb(248, 182, 200);
+        }
+
+        .footer-column p{
+            color: #f4b6c9;
+            font-size: 14px;
+        }
+
+        .footer-column ul{
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .footer-column ul li{
+            margin-bottom: 12px;
+        }
+
+        .footer-column ul li a{
+            text-decoration: none;
+            color: #f4b6c9;
+            font-size: 14px;
+        }
+
+        .newsletter{
+            display: flex;
+            gap: 10px;
+            margin-top: 15px;
+        }
+
+        .newsletter input{
+            padding: 8px;
+            border-radius: 5px;
+            border: none;
+        }
+
+        .footer-bottom{
+            text-align: center;
+            border-top: 4px solid #8e244d;
+            margin-top: 30px;
+            padding-top: 15px;
+            font-size: 13px;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <a href="#" class="navbar-brand">SSMRV College</a>
+        <ul class="nav-links">
+            <li><a href="#">Home</a></li>
+            <li><a href="#">About us</a></li>
+            <li><a href="#">Contact</a></li>
+            <li><a href="#">Login</a></li>
+        </ul>
+    </nav>
+
+    <h2>Student Form</h2>
+
+    <div class="form-container">
+        <form>
+            <div class="form-group">
+                <label for="fullName">Full name</label>
+                <input type="text" id="fullName" name="fullName" placeholder="Enter the full name">
+            </div>
+
+            <div class="form-group">
+                <label for="studentId">Student ID</label>
+                <input type="text" id="employeeId" name="employeeId" placeholder="Enter the student ID">
+            </div>
+
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" placeholder="Enter the email">
+            </div>
+
+            <div class="form-group">
+                <label for="password">Password</label>
+                <input type="password" id="password" name="password" placeholder="Enter the password">
+            </div>
+
+            <div class="form-group">
+                <label for="phone">Phone number</label>
+                <input type="text" id="phone" name="phone" placeholder="Enter the phone number">
+            </div>
+
+            <div class="form-group">
+                <label for="age">Age</label>
+                <input type="number" id="age" name="age" min="18" max="65" placeholder="Enter the age">
+            </div>
+
+            <div class="form-group">
+                <label>Gender:</label>
+                <label><input type="radio" name="gender" value="male"> Male</label>
+                <label><input type="radio" name="gender" value="female"> Female</label>
+            </div>
+
+            <div class="form-group">
+                <label>Facilities Required:</label>
+                <label><input type="checkbox" name="facilities" value="library"> Library</label>
+                <label><input type="checkbox" name="facilities" value="hostel">Hostel</label>
+                <label><input type="checkbox" name="facilities" value="transport">College Transport</label>
+                <label><input type="checkbox" name="facilities" value="canteen">Canteen</label>
+                <label><input type="checkbox" name="facilities" value="sports">Sports</label>
+            </div>
+
+            <div class="form-group">
+                <label>Select Course:</label>
+                <select name="course" id="course">
+                    <option value="">Select Course</option>
+                    <option value="bca">Bachelor of Computer Applications</option>
+                    <option value="bba">Bachelor of Business Administration</option>
+                    <option value="bcom">Bachelor of Commerce</option>
+                    <option value="bsc">Bachelor of Science</option>
+                    <option value="btech">Bachelor of Technology</option>
+                    <option value="mcom">Master of Commerce</option>
+                    <option value="mba">Master of Business Administration</option>
+                </select>
+            </div>
+
+            <!--Search-->
+            <div class="form-group">
+                <label for="--Search--">Search Course:</label>
+                <input type="search" id="search" placeholder="Search your Course">
+            </div>
+
+            <!--Range-->
+            <div class="form-group">
+                <label for="range">Rate your Interest in the Course:</label>
+                <input type="range" id="range" min="0" max="10">
+            </div>
+
+            <!--Date-->
+            <div class="form-group">
+                <label for="date">Select Admission Date:</label>
+                <input type="date" id="date" name="date">
+            </div>
+
+            <!--Time-->
+            <div class="form-group">
+                <label for="time">Select Counseling time:</label>
+                <input type="time" id="time" name="time">
+            </div>
+
+            <!--Date Time Local-->
+            <div class="form-group">
+                <label for="datetime">Select Counseling Date & Time:</label>
+                <input type="datetime-local" id="datetime" name="datetime">
+            </div>
+
+            <!--Month-->
+            <div class="form-group">
+                <label for="month">Select Admission Month:</label>
+                <input type="month" id="month" name="month">
+            </div>
+
+            <!--Week-->
+            <div class="form-group">
+                <label for="week">Select Orientation Week:</label>
+                <input type="week" id="week" name="week">
+            </div>
+
+            <!--Color-->
+            <div class="form-group">
+                <label for="color">Select your favorite color:</label>
+                <input type="color" id="color" name="color" value="#f48fb1">
+            </div>
+
+            <input type="submit" value="Submit">
+            <input type="reset" value="Clear">
+        </form>
+    </div>
+
+    <h1>Explore Our Courses</h1>
+
+    <table>
+        <tr>
+            <th>Serial No</th>
+            <th>Course Name</th>
+            <th>Duration</th>
+            <th>Mode of Study</th>
+            <th>Annual Fee per Year</th>
+        </tr>
+
+        <tr>
+            <td>1</td>
+            <td>Bachelor of Computer Applications (BCA)</td>
+            <td>3 Years</td>
+            <td>Full Time</td>
+            <td>97,000</td>
+        </tr>
+
+        <tr>
+            <td>2</td>
+            <td>Bachelor of Business Administration (BBA)</td>
+            <td>3 Years</td>
+            <td>Full Time</td>
+            <td>79,000</td>
+        </tr>
+
+        <tr>
+            <td>3</td>
+            <td>Bachelor of Commerce (B.Com)</td>
+            <td>3 Years</td>
+            <td>Full Time</td>
+            <td>60,000</td>
+        </tr>
+
+        <tr>
+            <td>4</td>
+            <td>Bachelor of Science (B.Sc)</td>
+            <td>3 Years</td>
+            <td>Full Time</td>
+            <td>85,000</td>
+        </tr>
+
+        <tr>
+            <td>5</td>
+            <td>Bachelor of Technology (B.Tech)</td>
+            <td>4 Years</td>
+            <td>Full Time</td>
+            <td>1,00,000</td>
+        </tr>
+
+        <tr>
+            <td>6</td>
+            <td>Master of Commerce (M.Com)</td>
+            <td>2 Years</td>
+            <td>Full Time</td>
+            <td>115,000</td>
+        </tr>
+
+        <tr>
+            <td>7</td>
+            <td>Master of Business Administration (MBA)</td>
+            <td>2 Years</td>
+            <td>Full Time</td>
+            <td>125,000</td>
+        </tr>
+    </table>
+
+
+    <h2>SSMRV College</h2>
+
+    <div class="img-container">
+
+        
+
+        <img src="images/college1.jpg" alt="College">
+        <img src="images/college2.jpg" alt="college">
+        <img src="images/college1.jpg" alt="college">
+        <img src="images/college2.jpg" alt="college">
+        <img src="images/college2.jpg" alt="college">
+        <img src="images/college1.jpg" alt="college">
+    </div>
+
+    <footer>
+        <div class="footer-container">
+            <div class="footer-column">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">About us</a></li>
+                    <li><a href="#">Contact</a></li>
+                    <li><a href="#">Services</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-column">
+                <h3>Specializations</h3>
+                <ul>
+                    <li><a href="#">Web Development</a></li>
+                    <li><a href="#">Data Center</a></li>
+                    <li><a href="#">AI/ML</a></li>
+                    <li><a href="#">Cyber Security</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-column">
+                <h3>Newsletter</h3>
+                <p>Stay updated with our latest news, events, courses, and college announcements. Subscribe to our newsletter and never miss important updates from SSMRV College.</p>
+                <div class="newsletter">
+                    <input type="email" placeholder="Your Email">
+                    <button>Subscribe</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p>&copy; 2026 Basic footer</p>
+            <p>Design by Gopika</p>
+        </div>
+    </footer>
+</body>
+</html>
